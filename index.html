@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta name="google-site-verification" content="9v-aFpROW4cMNKQ_kJbMmjp5KKzc3SzZOpw1s9Yw7Jk" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d1a">
+  <meta name="description" content="StronMaker tworzy nowoczesne, responsywne strony internetowe dla małych firm. Przejrzysta oferta, projekty demonstracyjne i indywidualna wycena.">
+  <meta name="robots" content="index, follow">
+  <title>StronMaker | Nowoczesne strony internetowe dla firm</title>
+  <link rel="canonical" href="https://TWOJ-ADRES-GITHUB.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="StronMaker | Strony internetowe dla firm">
+  <meta property="og:description" content="Nowoczesne strony WWW, które pomagają pokazać ofertę i ułatwiają kontakt z klientami.">
+  <meta property="og:url" content="https://TWOJ-ADRES-GITHUB.github.io/">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070b14;
+      --panel: #0d1424;
+      --panel-2: #101b30;
+      --text: #f4f7ff;
+      --muted: #a7b4cc;
+      --blue: #4d8dff;
+      --blue-bright: #69a5ff;
+      --line: rgba(157, 184, 230, .16);
+      --glow: 0 18px 70px rgba(22, 88, 211, .16);
+      --radius: 22px;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 80% -10%, rgba(35, 97, 214, .22), transparent 38rem),
+        radial-gradient(ellipse at -10% 35%, rgba(26, 67, 146, .12), transparent 35rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .skip-link { position: absolute; left: -9999px; top: 8px; z-index: 1000; }
+    .skip-link:focus { left: 12px; background: #fff; color: #000; padding: 10px 14px; border-radius: 8px; }
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7, 11, 20, .82);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 850; font-size: 1.25rem; letter-spacing: -.04em; }
+    .brand-mark {
+      width: 35px; height: 35px; display: grid; place-items: center; border-radius: 11px;
+      background: linear-gradient(135deg, #73b1ff, #2865dc 68%, #143e9d);
+      color: white; box-shadow: 0 7px 24px rgba(53, 117, 239, .32); font-size: 1.05rem;
+    }
+    .brand span:last-child { color: var(--blue-bright); }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .93rem; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: white; }
+    .nav-cta, .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border: 1px solid transparent; border-radius: 12px; padding: 12px 18px;
+      font-weight: 750; transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+    .nav-cta, .button-primary { background: linear-gradient(135deg, #5ba0ff, #2864dc); color: white; box-shadow: 0 10px 30px rgba(39, 101, 220, .22); }
+    .nav-cta:hover, .button:hover { transform: translateY(-2px); }
+    .button-secondary { border-color: var(--line); background: rgba(255,255,255,.025); color: var(--text); }
+    .button-secondary:hover { border-color: rgba(105,165,255,.5); background: rgba(72,137,255,.08); }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: var(--panel); color: white; border-radius: 10px; padding: 9px 12px; }
+    .hero { padding: 92px 0 76px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; color: #a9caff;
+      border: 1px solid rgba(91,160,255,.26); background: rgba(50,111,220,.09);
+      border-radius: 999px; padding: 7px 12px; font-size: .82rem; font-weight: 700;
+    }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #70aaff; box-shadow: 0 0 12px #478dff; }
+    h1 { font-size: clamp(2.6rem, 5.2vw, 4.7rem); line-height: 1.04; letter-spacing: -.065em; margin: 22px 0; max-width: 720px; }
+    .gradient-text { background: linear-gradient(100deg, #fff 10%, #a9ceff 53%, #4e8dff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { color: var(--muted); font-size: 1.12rem; max-width: 600px; margin: 0 0 28px; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-points { display: flex; flex-wrap: wrap; gap: 16px 22px; margin-top: 27px; color: #c0cce0; font-size: .9rem; }
+    .hero-points span::before { content: "✓"; color: #72aaff; font-weight: 900; margin-right: 8px; }
+    .visual-wrap { position: relative; min-width: 0; }
+    .visual-glow { position: absolute; inset: 10% 2%; background: #2167d9; filter: blur(85px); opacity: .22; }
+    .browser {
+      position: relative; border: 1px solid rgba(147,180,239,.24); border-radius: 20px; overflow: hidden;
+      background: #0b1221; box-shadow: var(--glow), 0 28px 80px rgba(0,0,0,.3); transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+    }
+    .browser-bar { height: 43px; display: flex; align-items: center; gap: 6px; padding: 0 15px; border-bottom: 1px solid var(--line); background: #0d1729; }
+    .browser-dot { width: 8px; height: 8px; border-radius: 50%; background: #43516a; }
+    .browser-address { margin: 0 auto; width: 44%; text-align: center; font-size: .68rem; color: #7485a2; background: #101d32; border-radius: 6px; padding: 4px; }
+    .mock-site { padding: 26px; background: linear-gradient(150deg, #101d32, #09111f 75%); min-height: 365px; }
+    .mock-nav { display: flex; justify-content: space-between; align-items: center; font-size: .72rem; color: #a9bad5; }
+    .mock-logo { color: #f5f8ff; font-weight: 850; font-size: .9rem; }
+    .mock-logo b { color: #67a5ff; }
+    .mock-pill { border: 1px solid #315b9c; border-radius: 6px; padding: 5px 8px; color: #c6dcff; }
+    .mock-site h2 { font-size: clamp(1.5rem, 2.7vw, 2.3rem); letter-spacing: -.05em; line-height: 1.08; max-width: 330px; margin: 48px 0 13px; }
+    .mock-site p { color: #9eafc9; font-size: .75rem; max-width: 285px; }
+    .mock-button { display: inline-block; margin-top: 9px; padding: 8px 12px; border-radius: 7px; background: #397de9; font-size: .7rem; font-weight: 800; }
+    .mock-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 28px; }
+    .mock-stat { padding: 12px 10px; border: 1px solid rgba(147,180,239,.14); border-radius: 9px; background: rgba(255,255,255,.025); }
+    .mock-stat strong { display: block; color: #dce9ff; font-size: .83rem; }
+    .mock-stat span { color: #8194b2; font-size: .62rem; }
+    .float-card { position: absolute; right: -17px; bottom: 24px; background: #111d31; border: 1px solid rgba(147,180,239,.22); border-radius: 14px; padding: 13px 16px; box-shadow: 0 16px 35px rgba(0,0,0,.3); font-size: .8rem; }
+    .float-card strong { display: block; margin-bottom: 2px; }
+    .float-card span { color: #9caec9; font-size: .72rem; }
+    section { padding: 82px 0; }
+    .section-head { max-width: 690px; margin-bottom: 34px; }
+    .section-kicker { color: var(--blue-bright); text-transform: uppercase; letter-spacing: .14em; font-size: .76rem; font-weight: 850; }
+    h2.section-title { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.055em; line-height: 1.12; margin: 11px 0 14px; }
+    .section-desc { color: var(--muted); margin: 0; font-size: 1.03rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .service-card, .project-card, .price-card, .step-card, .faq-item {
+      background: linear-gradient(145deg, rgba(18,29,49,.9), rgba(10,16,29,.92));
+      border: 1px solid var(--line); border-radius: var(--radius);
+    }
+    .service-card { padding: 25px; }
+    .icon-box { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; color: #9fc6ff; background: rgba(61,127,237,.13); border: 1px solid rgba(87,151,255,.2); font-size: 1.3rem; }
+    .service-card h3, .step-card h3 { margin: 18px 0 8px; font-size: 1.12rem; }
+    .service-card p, .step-card p { color: var(--muted); margin: 0; font-size: .94rem; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { overflow: hidden; }
+    .project-preview { min-height: 210px; padding: 18px; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .project-preview::after { content: ""; position: absolute; width: 190px; height: 190px; right: -50px; bottom: -90px; border-radius: 50%; background: rgba(69,139,255,.18); filter: blur(2px); }
+    .preview-auto { background: linear-gradient(135deg, #182538, #101724 60%, #172d46); }
+    .preview-beauty { background: linear-gradient(135deg, #33222b, #15121b 62%, #412737); }
+    .preview-garden { background: linear-gradient(135deg, #172d28, #101a1b 62%, #243d2e); }
+    .preview-window { position: relative; z-index: 1; background: rgba(5,10,18,.75); border: 1px solid rgba(255,255,255,.13); border-radius: 10px; padding: 12px; height: 175px; }
+    .preview-top { display: flex; justify-content: space-between; color: #dce7f9; font-size: .62rem; border-bottom: 1px solid rgba(255,255,255,.12); padding-bottom: 9px; }
+    .preview-title { margin-top: 21px; font-size: 1.08rem; line-height: 1.12; font-weight: 850; max-width: 180px; letter-spacing: -.04em; }
+    .preview-line { margin-top: 9px; width: 70%; height: 4px; background: rgba(201,220,255,.25); border-radius: 8px; }
+    .preview-line.short { width: 44%; margin-top: 5px; }
+    .preview-cta { display: inline-block; margin-top: 12px; background: #4d8dff; border-radius: 4px; width: 76px; height: 17px; }
+    .project-body { padding: 21px; }
+    .demo-label { display: inline-flex; padding: 5px 8px; border-radius: 7px; color: #b9d5ff; background: rgba(62,126,230,.13); border: 1px solid rgba(88,149,255,.18); font-size: .7rem; font-weight: 800; }
+    .project-body h3 { margin: 12px 0 7px; font-size: 1.12rem; }
+    .project-body p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .tag { color: #aebed6; border: 1px solid var(--line); border-radius: 7px; padding: 4px 7px; font-size: .72rem; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; align-items: stretch; }
+    .price-card { padding: 26px; position: relative; }
+    .price-card.featured { border-color: rgba(80,143,255,.6); box-shadow: var(--glow); background: linear-gradient(160deg, rgba(29,64,117,.42), rgba(10,16,29,.96) 68%); }
+    .popular { position: absolute; top: 16px; right: 16px; color: #c3dcff; background: rgba(61,127,237,.16); border: 1px solid rgba(91,160,255,.28); border-radius: 7px; padding: 4px 7px; font-size: .66rem; font-weight: 800; }
+    .price-card h3 { margin: 0 0 8px; font-size: 1.15rem; }
+    .price-sub { min-height: 48px; margin: 0; color: var(--muted); font-size: .88rem; }
+    .price { margin: 23px 0 4px; font-size: 2.2rem; font-weight: 900; letter-spacing: -.06em; }
+    .price small { font-size: .78rem; font-weight: 600; letter-spacing: 0; color: var(--muted); }
+    .price-note { color: #8193af; font-size: .76rem; min-height: 24px; }
+    .feature-list { list-style: none; margin: 23px 0 25px; padding: 0; display: grid; gap: 11px; color: #d0d9e9; font-size: .88rem; }
+    .feature-list li::before { content: "✓"; color: #73aaff; font-weight: 900; margin-right: 9px; }
+    .price-card .button { width: 100%; }
+    .pricing-note { color: var(--muted); margin-top: 20px; font-size: .85rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .step-card { padding: 22px; }
+    .step-number { color: #8abaff; font-size: .78rem; font-weight: 900; letter-spacing: .12em; }
+    .step-card h3 { margin-top: 11px; }
+    .cta-band { padding: 40px; border-radius: 26px; border: 1px solid rgba(92,153,255,.3); background: radial-gradient(ellipse at 100% 0%, rgba(54,122,235,.23), transparent 48%), linear-gradient(135deg, #101d33, #0a1120); display: flex; align-items: center; justify-content: space-between; gap: 25px; box-shadow: var(--glow); }
+    .cta-band h2 { margin: 0 0 9px; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; letter-spacing: -.05em; }
+    .cta-band p { margin: 0; color: var(--muted); max-width: 600px; }
+    .faq-list { display: grid; gap: 11px; max-width: 850px; }
+    .faq-item { padding: 0 20px; }
+    .faq-item summary { cursor: pointer; list-style: none; padding: 18px 28px 18px 0; font-weight: 750; position: relative; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; position: absolute; right: 0; top: 14px; color: #8dbaff; font-size: 1.4rem; }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-item p { margin: 0; padding: 0 0 19px; color: var(--muted); font-size: .93rem; }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 30px; }
+    .contact-copy p { color: var(--muted); }
+    .contact-details { display: grid; gap: 12px; margin-top: 24px; }
+    .contact-detail { padding: 15px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.025); }
+    .contact-detail strong { display: block; font-size: .78rem; color: #8dbaff; margin-bottom: 3px; }
+    .contact-detail span { overflow-wrap: anywhere; }
+    .contact-form { padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(14,22,38,.9); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: grid; gap: 7px; margin-bottom: 14px; }
+    .field.full { grid-column: 1 / -1; }
+    label { color: #d9e4f5; font-size: .84rem; font-weight: 700; }
+    input, textarea { width: 100%; color: white; background: #080f1c; border: 1px solid rgba(157,184,230,.2); border-radius: 10px; padding: 12px 13px; outline: none; }
+    input:focus, textarea:focus { border-color: #5b9bff; box-shadow: 0 0 0 3px rgba(77,141,255,.13); }
+    textarea { min-height: 125px; resize: vertical; }
+    .form-note { color: #8293ad; font-size: .76rem; margin: 12px 0 0; }
+    .form-status { color: #b8d6ff; font-size: .86rem; margin-top: 12px; min-height: 1.4em; }
+    footer { border-top: 1px solid var(--line); padding: 26px 0; color: #8393ac; font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: white; }
+    .small-disclaimer { font-size: .77rem; color: #7f91ad; margin-top: 12px; }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+      .hero { padding-top: 68px; }
+      .visual-wrap { max-width: 650px; width: 100%; margin-inline: auto; }
+      .services-grid, .portfolio-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .price-card:last-child { grid-column: 1 / -1; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-cta { display: none; }
+      .nav-links {
+        display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 16px 20px 20px;
+        background: rgba(7,11,20,.98); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 4px; border-bottom: 1px solid rgba(157,184,230,.08); }
+      .hero { padding: 54px 0 48px; }
+      h1 { font-size: clamp(2.45rem, 12vw, 3.5rem); }
+      .hero-copy { font-size: 1rem; }
+      .button-row .button { width: 100%; }
+      .hero-points { gap: 10px; flex-direction: column; }
+      section { padding: 60px 0; }
+      .services-grid, .portfolio-grid, .pricing-grid, .steps-grid { grid-template-columns: 1fr; }
+      .price-card:last-child { grid-column: auto; }
+      .cta-band { padding: 27px 22px; align-items: stretch; flex-direction: column; }
+      .cta-band .button { width: 100%; }
+      .mock-site { padding: 20px; min-height: 330px; }
+      .mock-site h2 { margin-top: 38px; }
+      .float-card { right: -4px; bottom: 12px; }
+      .form-grid { grid-template-columns: 1fr; gap: 0; }
+      .field.full { grid-column: auto; }
+      .contact-form { padding: 19px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "StronMaker",
+    "description": "Tworzenie nowoczesnych stron internetowych dla firm.",
+    "url": "https://TWOJ-ADRES-GITHUB.github.io/",
+    "areaServed": "PL",
+    "priceRange": "200-1500 PLN",
+    "availableLanguage": "Polish"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#start" aria-label="StronMaker, strona główna">
+        <span class="brand-mark">S</span><span>stron<span>maker</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Menu główne">
+        <a href="#uslugi">Usługi</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#proces">Jak działam</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <a class="nav-cta" href="#kontakt">Bezpłatna wycena <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Otwórz menu">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="start">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Strony internetowe dla firm</div>
+          <h1>Twoja firma. <span class="gradient-text">Lepsza obecność w sieci.</span></h1>
+          <p class="hero-copy">Tworzę nowoczesne i czytelne strony internetowe, które pokazują Twoją ofertę, budują profesjonalny wizerunek i ułatwiają klientom kontakt z Twoją firmą.</p>
+          <div class="button-row">
+            <a class="button button-primary" href="#kontakt">Porozmawiajmy o stronie <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#portfolio">Zobacz przykładowe projekty</a>
+          </div>
+          <div class="hero-points">
+            <span>Dopasowanie do telefonu i komputera</span>
+            <span>Przejrzysta oferta i kontakt</span>
+            <span>Indywidualna wycena</span>
+          </div>
+        </div>
+        <div class="visual-wrap" aria-label="Podgląd przykładowego projektu strony">
+          <div class="visual-glow"></div>
+          <div class="browser">
+            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><div class="browser-address">przykladowa-firma.pl</div></div>
+            <div class="mock-site">
+              <div class="mock-nav"><span class="mock-logo">TWOJA<b>FIRMA</b></span><span>Oferta　 O nas　 Kontakt</span></div>
+              <h2>Usługi, na których możesz polegać.</h2>
+              <p>Profesjonalna obsługa, jasne zasady i indywidualne podejście do każdego zlecenia.</p>
+              <span class="mock-button">Poznaj ofertę ↗</span>
+              <div class="mock-stats">
+                <div class="mock-stat"><strong>Oferta</strong><span>Zakres usług</span></div>
+                <div class="mock-stat"><strong>Realizacje</strong><span>Przykłady prac</span></div>
+                <div class="mock-stat"><strong>Kontakt</strong><span>Porozmawiajmy</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="float-card"><strong>Projekt dopasowany do Ciebie</strong><span>Przejrzysty układ · wersja mobilna</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="uslugi">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Co mogę przygotować</span>
+          <h2 class="section-title">Wszystko, czego potrzebujesz na dobry start.</h2>
+          <p class="section-desc">Strona ma jasno przedstawiać Twoją firmę i ułatwiać klientom wykonanie kolejnego kroku: kontaktu, zapytania lub poznania oferty.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="icon-box" aria-hidden="true">▧</div>
+            <h3>Strona wizytówka</h3>
+            <p>Najważniejsze informacje o firmie, oferta, dane kontaktowe i przyciski ułatwiające kontakt.</p>
+          </article>
+          <article class="service-card">
+            <div class="icon-box" aria-hidden="true">✦</div>
+            <h3>Projekt dopasowany do branży</h3>
+            <p>Wygląd i treści dopasowane do rodzaju działalności, na przykład warsztatu, salonu lub firmy usługowej.</p>
+          </article>
+          <article class="service-card">
+            <div class="icon-box" aria-hidden="true">↗</div>
+            <h3>Wersja mobilna i podstawowe SEO</h3>
+            <p>Układ dopasowany do różnych ekranów oraz podstawowe tytuły, opisy i struktura strony.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Przykładowe realizacje</span>
+          <h2 class="section-title">Pomysły na strony dla różnych branż.</h2>
+          <p class="section-desc">Poniższe projekty są demonstracyjne i pokazują możliwy kierunek wizualny. Nie są przedstawiane jako płatne realizacje dla prawdziwych klientów.</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="project-card">
+            <div class="project-preview preview-auto">
+              <div class="preview-window">
+                <div class="preview-top"><span>AUTO SERWIS</span><span>USŁUGI　 KONTAKT</span></div>
+                <div class="preview-title">Zadbaj o sprawność swojego auta.</div>
+                <div class="preview-line"></div><div class="preview-line short"></div><span class="preview-cta"></span>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="demo-label">PROJEKT DEMONSTRACYJNY</span>
+              <h3>Warsztat samochodowy</h3>
+              <p>Prezentacja usług, danych kontaktowych, godzin pracy i przykładowych realizacji.</p>
+              <div class="tag-row"><span class="tag">Usługi</span><span class="tag">Kontakt</span><span class="tag">Galeria</span></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-preview preview-beauty">
+              <div class="preview-window">
+                <div class="preview-top"><span>STUDIO URODY</span><span>OFERTA　 ZAPISY</span></div>
+                <div class="preview-title">Czas na chwilę dla siebie.</div>
+                <div class="preview-line"></div><div class="preview-line short"></div><span class="preview-cta"></span>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="demo-label">PROJEKT DEMONSTRACYJNY</span>
+              <h3>Salon fryzjerski lub barber</h3>
+              <p>Lista usług, przykładowy cennik, zdjęcia i łatwy sposób na zapytanie o termin.</p>
+              <div class="tag-row"><span class="tag">Cennik</span><span class="tag">Zdjęcia</span><span class="tag">Rezerwacje</span></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-preview preview-garden">
+              <div class="preview-window">
+                <div class="preview-top"><span>ZIELONY ZAKĄTEK</span><span>OFERTA　 KONTAKT</span></div>
+                <div class="preview-title">Tworzymy przestrzeń, w której odpoczniesz.</div>
+                <div class="preview-line"></div><div class="preview-line short"></div><span class="preview-cta"></span>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="demo-label">PROJEKT DEMONSTRACYJNY</span>
+              <h3>Firma ogrodnicza</h3>
+              <p>Zakres prac, galeria ogrodów, obszar działania i formularz zapytania.</p>
+              <div class="tag-row"><span class="tag">Oferta</span><span class="tag">Realizacje</span><span class="tag">Zapytanie</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cennik">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Orientacyjny cennik</span>
+          <h2 class="section-title">Wybierz zakres odpowiedni dla swojej firmy.</h2>
+          <p class="section-desc">Ceny są orientacyjne. Ostateczna wycena zależy od liczby podstron, funkcji, materiałów i zakresu prac.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Start</h3>
+            <p class="price-sub">Prosta strona wizytówka dla firmy, która chce zacząć prezentować ofertę w sieci.</p>
+            <div class="price">od 200 zł</div>
+            <div class="price-note">Cena orientacyjna</div>
+            <ul class="feature-list">
+              <li>Jedna strona z sekcjami</li>
+              <li>Opis usług i dane kontaktowe</li>
+              <li>Układ na telefon i komputer</li>
+              <li>Podstawowe ustawienia SEO</li>
+            </ul>
+            <a class="button button-secondary" href="#kontakt" data-package="Start">Zapytaj o pakiet</a>
+          </article>
+          <article class="price-card featured">
+            <span class="popular">Najczęściej wybierany</span>
+            <h3>Firma</h3>
+            <p class="price-sub">Rozbudowana prezentacja dla firmy, która potrzebuje więcej miejsca na ofertę.</p>
+            <div class="price">od 500 zł</div>
+            <div class="price-note">Cena orientacyjna</div>
+            <ul class="feature-list">
+              <li>Rozbudowane sekcje lub podstrony</li>
+              <li>Oferta i galeria realizacji</li>
+              <li>Wyraźne przyciski kontaktowe</li>
+              <li>Podstawowe SEO i wersja mobilna</li>
+            </ul>
+            <a class="button button-primary" href="#kontakt" data-package="Firma">Zapytaj o pakiet</a>
+          </article>
+          <article class="price-card">
+            <h3>Indywidualny</h3>
+            <p class="price-sub">Dla firm, które potrzebują niestandardowego układu lub dodatkowych funkcji.</p>
+            <div class="price">Wycena</div>
+            <div class="price-note">Po ustaleniu potrzeb</div>
+            <ul class="feature-list">
+              <li>Zakres ustalany indywidualnie</li>
+              <li>Projekt dopasowany do branży</li>
+              <li>Możliwość dodania funkcji</li>
+              <li>Jasne ustalenia przed startem</li>
+            </ul>
+            <a class="button button-secondary" href="#kontakt" data-package="Indywidualny">Omówmy projekt</a>
+          </article>
+        </div>
+        <p class="pricing-note">Ceny nie obejmują ewentualnych opłat za domenę, płatny hosting, licencje ani usługi zewnętrzne. Zakres i koszty ustalane są przed rozpoczęciem prac.</p>
+      </div>
+    </section>
+
+    <section id="proces">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Prosty proces</span>
+          <h2 class="section-title">Od pierwszej rozmowy do gotowej strony.</h2>
+          <p class="section-desc">Wiesz, co dzieje się na każdym etapie. Najpierw ustalamy potrzeby i cenę, dopiero później zaczynam pracę.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card"><span class="step-number">KROK 01</span><h3>Rozmowa</h3><p>Poznaję Twoją firmę, ofertę i cel strony.</p></article>
+          <article class="step-card"><span class="step-number">KROK 02</span><h3>Wycena</h3><p>Ustalamy zakres, cenę, termin i potrzebne materiały.</p></article>
+          <article class="step-card"><span class="step-number">KROK 03</span><h3>Projekt</h3><p>Przygotowuję stronę i uzgadniamy ewentualne poprawki.</p></article>
+          <article class="step-card"><span class="step-number">KROK 04</span><h3>Publikacja</h3><p>Po akceptacji ustalamy sposób uruchomienia strony i przekazania plików.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Zaproszenie do kontaktu">
+      <div class="container">
+        <div class="cta-band">
+          <div><h2>Masz pomysł na stronę dla swojej firmy?</h2><p>Opowiedz krótko, czym zajmuje się Twoja firma. Wspólnie ustalimy, jaki zakres strony będzie najbardziej przydatny.</p></div>
+          <a class="button button-primary" href="#kontakt">Poproś o wycenę <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="pytania">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Pytania i odpowiedzi</span>
+          <h2 class="section-title">Zanim zaczniemy.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>Ile kosztuje stworzenie strony?</summary><p>Prosta strona zaczyna się orientacyjnie od 200 zł. Cena końcowa zależy od zakresu, liczby podstron, materiałów i dodatkowych funkcji.</p></details>
+          <details class="faq-item"><summary>Czy strona będzie działać na telefonie?</summary><p>Tak. Projekt przygotowywany jest z myślą o telefonach, tabletach i komputerach.</p></details>
+          <details class="faq-item"><summary>Czy strona pojawi się w Google?</summary><p>Stronę można przygotować pod indeksowanie i zgłosić do Google. Samo zgłoszenie nie gwarantuje indeksacji ani konkretnej pozycji w wynikach wyszukiwania.</p></details>
+          <details class="faq-item"><summary>Czy muszę mieć własne zdjęcia i teksty?</summary><p>Najlepiej dostarczyć prawdziwe informacje i materiały o firmie. Przed rozpoczęciem ustalimy, co już masz i czego jeszcze brakuje.</p></details>
+          <details class="faq-item"><summary>Czy domena i hosting są w cenie?</summary><p>Nie zawsze. Koszt domeny, hostingu i ewentualnych usług zewnętrznych omawiamy osobno przed rozpoczęciem projektu.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Kontakt</span>
+          <h2 class="section-title">Opowiedz mi o swojej firmie.</h2>
+          <p class="section-desc">Napisz, jakiej strony potrzebujesz. Odpowiem, aby ustalić zakres prac i orientacyjną wycenę.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <h3>Porozmawiajmy o Twoim projekcie.</h3>
+            <p>Możesz skontaktować się ze mną telefonicznie lub e-mailowo.</p>
+            <div class="contact-details">
+              <div class="contact-detail"><strong>TELEFON</strong><span><a href="tel:+48515533951">515 533 951</a></span></div>
+              <div class="contact-detail"><strong>E-MAIL</strong><span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ksawerynieroda%40gmail.com" target="_blank" rel="noopener noreferrer">ksawerynieroda@gmail.com</a></span></div>
+            </div>
+            
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-grid">
+              <div class="field"><label for="name">Imię lub nazwa firmy</label><input id="name" name="name" autocomplete="name" required placeholder="Jak się do Ciebie zwracać?"></div>
+              <div class="field"><label for="email">Twój e-mail</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="ty@firma.pl"></div>
+              <div class="field full"><label for="topic">Jakiej strony potrzebujesz?</label><input id="topic" name="topic" placeholder="Np. strona dla warsztatu samochodowego"></div>
+              <div class="field full"><label for="message">Kilka słów o projekcie</label><textarea id="message" name="message" required placeholder="Opisz krótko swoją firmę i czego potrzebujesz..."></textarea></div>
+            </div>
+            <button class="button button-primary" type="submit">Przygotuj wiadomość e-mail ↗</button>
+            <p class="form-note">Formularz otworzy Gmail w nowej karcie i uzupełni adres odbiorcy oraz treść wiadomości.</p>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#start"><span class="brand-mark">S</span><span>stron<span>maker</span></span></a>
+      <span>© <span id="year"></span> StronMaker. Wszystkie prawa zastrzeżone.</span>
+      <div class="footer-links"><a href="#uslugi">Usługi</a><a href="#portfolio">Portfolio</a><a href="#kontakt">Kontakt</a></div>
+    </div>
+    <div class="container"><p class="small-disclaimer">Projekty w portfolio mają charakter demonstracyjny. Ceny są orientacyjne i wymagają potwierdzenia w indywidualnej wycenie.</p></div>
+  </footer>
+
+  <script>
+    // UZUPEŁNIJ TEN ADRES przed publikacją, aby formularz mógł przygotować wiadomość.
+    const EMAIL_ODBIORCY = "ksawerynieroda@gmail.com";
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Zamknij menu" : "Otwórz menu");
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Otwórz menu");
+      menuToggle.textContent = "☰";
+    }));
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll("[data-package]").forEach(link => link.addEventListener("click", () => {
+      const topic = document.getElementById("topic");
+      if (topic) topic.value = "Interesuje mnie pakiet: " + link.dataset.package;
+    }));
+    document.getElementById("contactForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const status = document.getElementById("formStatus");
+      if (!EMAIL_ODBIORCY || !EMAIL_ODBIORCY.includes("@")) {
+        status.textContent = "Adres odbiorcy jest nieprawidłowy.";
+        return;
+      }
+      const data = new FormData(event.currentTarget);
+      const subject = encodeURIComponent("Zapytanie o stronę internetową: " + (data.get("topic") || "nowy projekt"));
+      const body = encodeURIComponent(
+        "Imię / firma: " + data.get("name") + "\n" +
+        "E-mail do odpowiedzi: " + data.get("email") + "\n" +
+        "Temat: " + (data.get("topic") || "Nie podano") + "\n\n" +
+        "Wiadomość:\n" + data.get("message")
+      );
+      const gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(EMAIL_ODBIORCY) + "&su=" + subject + "&body=" + body;
+      window.open(gmailUrl, "_blank", "noopener,noreferrer");
+      status.textContent = "Gmail otwiera się w nowej karcie z uzupełnionym adresem odbiorcy i treścią wiadomości.";
+    });
+  </script>
+</body>
+</html>
